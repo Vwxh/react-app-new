@@ -1,7 +1,7 @@
 .navigation-div {
     display: flex;
     flex-direction: row;
-    min-height: 87px;
+    min-height: 70px;
     background-color: #34ABDE;
     border: #319cca 1px solid;
 }
@@ -9,7 +9,7 @@
 .navigation-div a {
     font-weight: bold;
     color: #0d3e5b;
-    font-size: 17px;
+    font-size: 14px;
     text-decoration: none;
     padding: 5px 20px;
 }

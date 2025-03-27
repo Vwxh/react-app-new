@@ -21,8 +21,8 @@ import './../../css/specific/ft-att-attendance.css'
 
 export const Attendance = () => {
     //few variable
-const [tabs, setTabs] = useState(["req-leave"]);
-const [activeTab,setActiveTab]= useState([tabs[0]]);
+  const [tabs, setTabs] = useState(["req-leave"]);
+    const [activeTab, setActiveTab] = useState("req-leave");
 const [activeNav,setActiveNav]=useState(1);
 
     // 3 functions - addTab, removeTab, makeActiveTab, makeActiveNav
@@ -67,10 +67,9 @@ const [activeNav,setActiveNav]=useState(1);
     <div className="ft-att-attendancecontainer">
     
         <nav className="ft-att-sidebar">
-            <h2>Menu</h2>
             <ul>
                 <li>
-                    <button className="ft-att-dropdown-btn" onClick={() => makeActiveNav(1)}>Request</button>
+                    <button className="ft-att-dropdown-btn" onClick={() => makeActiveNav(1)}>Setting</button>
                     <ul className={activeNav === 1 ? "ft-att-dropdown-content show" : "ft-att-dropdown-content"}>
                     <li><a onClick={()=> addTab('req-leave')} >Leave</a></li>
                     <li><a onClick={()=> addTab('req-overtime')}>Overtime</a></li>
@@ -109,7 +108,7 @@ const [activeNav,setActiveNav]=useState(1);
           <div className="ft-att-tab-header-container">
             {/*Array of something. for each array will make tab header*/
          tabs.map((tab) => (
-                <div key={tab} className="ft-att-tab-tab-header">
+                <div key={tab} className="ft-att-tab-header">
                     <span onClick={() => makeActiveTab(tab)}>{tab}</span>
                     {tabs.length > 1 && <button onClick={() => removeTab(tab)} className="ft-att-close-btn">X</button>}
                 </div>
@@ -118,7 +117,7 @@ const [activeNav,setActiveNav]=useState(1);
           
           <div className="ft-att-tab-content">
             {/*Active jsx that will be call - base on the activeTab */
-            activeTab === 'req-leave' && <Leave/>}
+            activeTab === 'req-leave' && <Leave />}
 
             
            { activeTab === 'req-overtime' && <Overtime/>} 
