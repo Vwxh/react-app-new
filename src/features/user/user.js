@@ -10,7 +10,7 @@ export const User = () => {
 </div>
 
 <div class="ft-usr-divcontainer2">
-    <div class="ft-usr-minicontainer2"><img  src="#" alt="" /></div>
+    <div class="ft-usr-minicontainer2"><img  src="#" alt="" />hello</div>
     
 </div>
 </main>
