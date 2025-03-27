@@ -312,3 +312,19 @@ td {
     border: 1px solid #ddd;
   }
 
+
+  .ft-att-close-others-btn {
+    margin-left: 10px;
+    padding: 5px 6px;
+    background: #ff9a3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .ft-att-close-others-btn:hover {
+    background: #ff7b00;
+ 
+  }

@@ -64,7 +64,14 @@ const [activeNav,setActiveNav]=useState(1);
     setActiveNav(activeNav === navName ? null :navName)
   };
 
-
+//close all but keep newest button//
+const closeAllExceptLast = () => {
+    if (tabs.length <= 1) return; // Do nothing if only 1 tab exists
+    
+    const lastTab = tabs[tabs.length - 1]; // Get the last tab
+    setTabs([lastTab]); // Keep only the last tab
+    setActiveTab(lastTab); // Focus on it
+  };
   //Approval//
   
   return(
@@ -147,15 +154,29 @@ const [activeNav,setActiveNav]=useState(1);
 
      
         <div className="ft-att-content">
-          <div className="ft-att-tab-header-container">
-            {/*Array of something. for each array will make tab header*/
-         tabs.map((tab) => (
-                <div key={tab} className="ft-att-tab-header">
-                    <span onClick={() => makeActiveTab(tab)}>{tab}</span>
-                    {tabs.length > 1 && <button onClick={() => removeTab(tab)} className="ft-att-close-btn">X</button>}
-                </div>
-            ))}
-          </div>
+        <div className="ft-att-tab-header-container">
+  {/* Existing tabs */}
+  {tabs.map((tab) => (
+    <div key={tab} className="ft-att-tab-header">
+      <span onClick={() => makeActiveTab(tab)}>{tab}</span>
+      {tabs.length > 1 && (
+        <button onClick={() => removeTab(tab)} className="ft-att-close-btn">
+          X
+        </button>
+      )}
+    </div>
+  ))}
+
+  {/* NEW: "Close Others" button (only shows when 2+ tabs open) */}
+  {tabs.length >= 2 && (
+    <button 
+      onClick={closeAllExceptLast}
+      className="ft-att-close-others-btn"
+    >
+      Close previous tabs
+    </button>
+  )}
+</div>
           
           <div className="ft-att-tab-content">
           { activeTab === 'Operation log ' && <MobileOperationLog/>}           
